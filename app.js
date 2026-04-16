@@ -74,10 +74,10 @@ app.post('/movies', (req, res) => {
     res.status(201).json(newMovie) // actualizar la cache del cliente
 })
 
-app.delete ('/movies/:id', (req, res) => {
+app.delete('/movies/:id', (req, res) => {
     const { id } = req.params
-    const movieIndex = movies.findIndex(movie => movie.id === id)    
-    
+    const movieIndex = movies.findIndex(movie => movie.id === id)
+
     if (movieIndex === -1) {
         return res.status(404).json({ message: "movie not found" })
     }
@@ -108,13 +108,16 @@ app.patch('/movies/:id', (req, res) => {
 
     movies[movieIndex] = updateMovie
 
-        return res.json(updateMovie)
-    })
+    return res.json(updateMovie)
+})
 
-    const PORT = process.env.PORT ?? 8080
+const PORT = process.env.PORT ?? 8080
 
+app.get('/', (req, res) => {
+    res.send('<h1>¡Bienvenida a mi API en Railway!</h1><p>Prueba yendo a /movies</p>');
+});
 
-    app.listen(PORT, () => {
-        console.log(`server listening on port http://localhost:${PORT}`)
-    })
+app.listen(PORT, () => {
+    console.log(`server listening on port http://localhost:${PORT}`)
+})
 
