@@ -12,7 +12,7 @@ app.use(express.json()) // middleware para parsear el body de las peticiones com
 app.use(cors({
     origin: (origin, callback) => {
         const ACCEPTED_ORIGINS = [
-            'http://localhost:1234',
+            'http://localhost:8080',
             'https://movies.com',
             'https://midu.dev'
         ]
@@ -111,7 +111,7 @@ app.patch('/movies/:id', (req, res) => {
         return res.json(updateMovie)
     })
 
-    const PORT = process.env.PORT ?? 1234
+    const PORT = process.env.PORT ?? 8080
 
 
     app.listen(PORT, () => {
