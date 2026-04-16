@@ -114,7 +114,7 @@ app.patch('/movies/:id', (req, res) => {
 const PORT = process.env.PORT ?? 8080
 
 app.get('/', (req, res) => {
-    res.send('<p>servidor corriendo bien, pero aun falta agregarle (/) lo que quiero mostrar en la uta principal</p>');
+    res.send('<p>servidor corriendo bien, pero aun falta agregarle (/) lo que quiero mostrar en la Ruta Principal</p>');
 });
 
 app.listen(PORT, () => {
